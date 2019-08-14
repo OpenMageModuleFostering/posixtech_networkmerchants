@@ -1,0 +1,195 @@
+<?xml version="1.0"?>
+<!-- 
+ *
+ * Posixtech Ltd.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ *
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to support@posixtech.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * You can edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future.
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This package designed for Magento COMMUNITY edition version 1.5.0.0 to all upper version.
+ * Posixtech Ltd. does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * Posixtech Ltd. does not provide extension support in case of
+ * incorrect edition usage.
+ * =================================================================
+ *
+ * @category   Posixtech
+ * @package    NetworkMerchants
+ * @copyright  Copyright (c) 2013 Posixtech Ltd. (http://www.posixtech.com)
+ * @license    http://www.posixtech.com/POSIXTECH_LTD_LICENSE.txt
+ *
+ -->
+<config>
+	<sections>
+		<payment>
+			<groups>
+				<networkmerchants translate="label" module="paygate">
+					<label>Network Merchants</label>
+					<sort_order>100</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>0</show_in_store>
+					<fields>
+						<active translate="label">
+							<label>Enabled</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<comment><![CDATA[Whether this payment method is enabled or disabled]]></comment>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+						</active>
+						<title translate="label">
+							<label>Title</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>2</sort_order>
+							<comment><![CDATA[The title of the payment method that will be displayed to customers.]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</title>
+						<username translate="label">
+							<label>User Name</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>3</sort_order>
+							<comment><![CDATA[User Name that is use to hook the payment method to your gateway account.]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+						</username>
+                        <password translate="label">
+							<label>Password</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>4</sort_order>
+							<comment><![CDATA[Password that is use to hook the payment method to your gateway account.]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+						</password>
+						<payment_action translate="label">
+							<label>Payment Action</label>
+							<frontend_type>select</frontend_type>
+							<source_model>paygate/authorizenet_source_paymentAction</source_model>
+							<sort_order>5</sort_order>
+							<comment><![CDATA["Authorize Only" or "Authorize and Capture". If you select Authorize Only, you will need to capture the transaction in order for funds to move.]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+						</payment_action>
+						<order_status transaction="label">
+							<label>New order status</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_order_status</source_model>
+							<comment><![CDATA[The status of the order after the payment is successful.]]></comment>
+							<sort_order>6</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+						</order_status>
+                        <test_mode translate="label">
+                            <label>Test Mode</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <comment><![CDATA[If test mode is enabled, your transactions will be sent to a test merchant account.]]></comment>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </test_mode>
+						<currency translate="label">
+                            <label>Accepted Currency</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_currency</source_model>
+                            <sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </currency>
+						<cctypes translate="label">
+                            <label>Credit Card Types</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>paygate/authorizenet_source_cctype</source_model>
+                            <sort_order>9</sort_order>
+                            <comment><![CDATA[Select which credit card types are accepted.]]></comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </cctypes>
+						<useccv translate="label">
+                            <label>Credit Card Verification</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <comment><![CDATA[Whether the 3 or 4 digit card security code is required.]]></comment>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </useccv>
+                        <allowspecific translate="label">
+                            <label><![CDATA[Payment from applicable countries:]]></label>
+                            <comment><![CDATA[Set this to "Specific Countries" if you wish to limit what countries may place orders.]]></comment>
+                            <frontend_type>allowspecific</frontend_type>
+                            <sort_order>11</sort_order>
+                            <source_model>adminhtml/system_config_source_payment_allspecificcountries</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allowspecific>
+                        <specificcountry translate="label">
+                            <label><![CDATA[Payment from Specific countries:]]></label>
+                            <comment><![CDATA[Which countries this payment method is available to. This becomes active if the setting above is set to "Specific Countries".]]></comment>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>12</sort_order>
+                            <source_model>adminhtml/system_config_source_country</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </specificcountry>
+						<min_order_total translate="label">
+                            <label>Minimum Order Total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>13</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </min_order_total>
+                        <max_order_total translate="label">
+                            <label>Maximum Order Total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>14</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </max_order_total>
+                        <sort_order translate="label">
+                            <label>Sort Order</label>
+                            <comment><![CDATA[In which order this payment method will appear on the checkout page.]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <frontend_class>validate-number</frontend_class>
+                        </sort_order>
+					</fields>
+				</networkmerchants>
+			</groups>
+		</payment>
+	</sections>
+</config>
+						
