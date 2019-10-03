@@ -1,3 +1,5 @@
+
+
 ## Original Package Description
 
 What is “NMI Direct Post API”?  The Direct Post method is the simplest integration method for both web-based and non web-based payment applications; however, merchants using this integration method should have passed a PCI vulnerability scans before use. For detail regarding this payment method, you can browse https://www.nmi.com/
